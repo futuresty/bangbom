@@ -1,0 +1,14 @@
+<h1>所有用户</h1>
+<%= will_paginate %>
+<ul class="users">
+<!-- 	
+<%= render user %>
+_user.html.erb
+-->	
+<% @users.each do |user| %>
+<li>
+	<%= link_to user.name, user%>
+</li>
+<% end %>
+</ul>
+<%= will_paginate %>

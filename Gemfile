@@ -7,11 +7,16 @@ gem 'rails', '3.2.13'
 gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
 
+# will_paginate and bootstrap-will_paginate
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-group :development do
+group :development, :test do
 	gem 'sqlite3'
+	# fake to generate test name.
+	gem 'faker'
 end
 
 # Gems used only for assets and not required
