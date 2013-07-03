@@ -1,0 +1,48 @@
+<h1>用户注册</h1>
+<!-- any error? -->
+<% if @user.errors.any? %>
+<div id="error_explanation">
+	<div class="alert alert-error">
+		The form contains <%= pluralize(@user.errors.count, "error") %>.
+	</div>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li>* <%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<!-- user submit form. -->
+<%= form_for(@user, :html=>{:class=>"form-horizontal"}) do |f| %>
+<div class="control-group">
+	<%= f.label :name, "用户名", :class=>"control-label"%>
+	<div class="controls">
+		<%= f.text_field :name %>
+	</div>
+</div>
+
+<div class="control-group">
+	<%= f.label :email, "Email", :class=>"control-label"%>
+	<div class="controls">
+		<%= f.text_field :email %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :password, "密码", :class=>"control-label"%>
+	<div class="controls">
+		<%= f.password_field :password %>
+	</div>
+</div>
+<div class="control-group">
+	<%= f.label :password_confirmation, "确认密码", :class=>"control-label"%>
+	<div class="controls">
+		<%= f.password_field :password_confirmation %>
+	</div>
+</div>
+<div class="control-group">
+	<div class="controls">
+		<%= f.submit "提交", class: "btn btn-middle btn-primary" %>
+	</div>
+</div>
+<% end %>
