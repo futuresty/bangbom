@@ -1,0 +1,17 @@
+<% provide(:title, '登录') %>
+
+<% flash.each do |key, value| %>
+<div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<h1>用户登录</h1>
+<%= form_for(:session, url: sessions_path) do |f| %>
+
+<%= f.label :email %>
+<%= f.text_field :email %>
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+
+<%= f.submit "Sign in", class: "btn btn-middle btn-primary" %>
+<% end %>

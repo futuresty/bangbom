@@ -4,8 +4,11 @@ Bangbom::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'homes#index'
   match '/signup' => 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
